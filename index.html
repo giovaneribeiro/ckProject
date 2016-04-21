@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG HTML5</title>
+
+    <link rel="stylesheet" href="vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- Formulário para adicionar nó -->
+                <div class="form-inline">
+                    <input type="text" id="nodeName" maxlength="7" placeholder="Valor do nó" class="form-control">
+                    <button onclick="addNode()" class="btn btn-primary">Adicionar nó</button>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- Grupo de nós -->
+                <div id="nodeGroup"></div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div>
+            <div class="col-xs-12">
+                <!-- Painel de opções de cada nó -->
+                <div id="info">
+                    <b>Informações:</b>
+                    <div id="nodeInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery.min.js"></script>
+    <script src="js/nodes.js"></script>
+</body>
+</html>

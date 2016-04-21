@@ -1,0 +1,29 @@
+* {
+    font-family: Ubuntu;
+}
+
+.circle circle {
+    fill: #2980b9;
+}
+.circle:hover circle {
+    fill: #3498db;
+}
+.circle text tspan {
+    text-anchor: middle;
+    alignment-baseline: middle;
+
+    fill: #ecf0f1;
+
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#info {
+    width: 150px;
+    padding: 10px;
+
+    background-color: white;
+
+    border: 1px solid #2c3e50;
+    border-radius: 5px;
+}
