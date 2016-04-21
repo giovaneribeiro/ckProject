@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-xs-8">
 
-                <!-- Formulário para adicionar nó -->
+                <!-- Formulario para adicionar no -->
                 <div class="form-inline">
                     <input type="text" id="nodeName" maxlength="7" placeholder="Valor do nó" class="form-control">
                     <button onclick="addNode()" class="btn btn-primary">Adicionar nó</button>
@@ -21,12 +21,12 @@
 
                 <hr>
 
-                <!-- Grupo de nós -->
+                <!-- Grupo de nos -->
                 <div id="nodeGroup"></div>
 
                 <hr>
 
-                <!-- Painel de opções de cada nó -->
+                <!-- Painel de opcoes de cada no -->
                 <div class="well" id="info">
                     <b>Informações:</b>
                     <div id="nodeInfo"></div>
@@ -34,9 +34,20 @@
             </div>
 
             <div class="col-xs-4">
-                <div class="well">
-                    <b>Log:</b>
-                </div>
+
+                <!-- Relatorio -->
+                <p><b>Log:</b></p>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Ação</th>
+                        <th>Valor</th>
+                        <th>Posição</th>
+                    </tr>
+                    <tbody id="log">
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

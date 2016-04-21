@@ -4,10 +4,23 @@
 
 .circle circle {
     fill: #2980b9;
+
+    cursor: pointer;
 }
-.circle:hover circle {
+.circle circle:hover {
     fill: #3498db;
 }
+.circle text.remove,
+.circle circle.remove {
+    fill: #c0392b;
+
+    cursor: pointer;
+}
+.circle circle.remove:hover,
+.circle text text.remove:hover {
+    fill: #e74c3c;
+}
+.circle text,
 .circle text tspan {
     text-anchor: middle;
     alignment-baseline: middle;
@@ -16,4 +29,6 @@
 
     font-size: 14pt;
     font-weight: bold;
+
+    cursor: pointer;
 }
