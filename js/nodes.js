@@ -18,7 +18,7 @@ nodeGroup.append(head);
 function showNodeInfo(circle, event) {
     nodeInfo.empty();
 
-    var textContent = circle.textContent.substr(0, circle.textContent.length-1);
+    var textContent = circle.textContent.substr(0, circle.textContent.length-2);
     var position = searchNode(textContent);
 
     nodeInfo.append('Valor: ' + textContent);
@@ -44,19 +44,21 @@ function createNode(value) {
     return '<svg width="'+ raio*2 +'" height="'+ raio*2 +'" class="circle" onmouseover="showNodeInfo(this, event)" onmouseout="hideNodeInfo()">' +
 
         '<circle cx="'+ raio +'" cy="'+ raio +'" r="'+ raio +'"></circle>' +
-        '<circle cx="15" cy="15" r="15" class="remove" onclick="removeNode(this)"></circle>' +
-
         '<text x="'+ raio +'" y="'+ raio +'">' +
             '<tspan>' + value + '</tspan>' +
         '</text>' +
 
+        '<circle cx="15" cy="15" r="15" class="remove" onclick="removeNode(this)"></circle>' +
+        '<circle cx="85" cy="15" r="15" class="add" onclick="addNode(this)"></circle>' +
+
         '<text x="15" y="15" onclick="removeNode(this)">x</text>' +
+        '<text x="85" y="15" onclick="addNode(this)">+</text>' +
 
         '</svg> ';
 }
 
 /* Adicionar */
-function addNode() {
+function addNode(node) {
     var nodeName = $('#nodeName').val();
 
     if(nodeName == "") {
@@ -68,22 +70,27 @@ function addNode() {
         return ;
     }
 
-    var node = createNode(nodeName);
-    nodeGroup.append(node);
+    var newNode = createNode(nodeName);
+    nodeGroup.append(newNode);
 
-    nodes.push({"value": nodeName});
+    var svg = node.parentNode;
+    var textContent = svg.textContent.substr(0, svg.textContent.length-2);
+
+    var position = searchNode(textContent);
+    nodes.splice(position+1, 0, {"value": nodeName});
 
     $('#nodeName').val('');
 
-    $('#log').append(log('Adicionar', nodeName, nodes.length-1));
+    $('#log').append(log('Adicionar', nodeName, position+1));
+
+    repaint();
 }
 
 /* Remover */
 function removeNode(node) {
 
     var svg = node.parentNode;
-
-    var textContent = svg.textContent.substr(0, svg.textContent.length-1);
+    var textContent = svg.textContent.substr(0, svg.textContent.length-2);
 
     if(textContent == 'HEAD') {
         nodeGroup.empty();
@@ -123,4 +130,15 @@ function log(action, value, position) {
         '<td>'+ value +'</td>' +
         '<td>'+ position +'</td>' +
         '</tr>';
+}
+
+/* Redesenha os círculos */
+function repaint() {
+
+    nodeGroup.empty();
+    nodeGroup.append(head);
+
+    for(var i=0; i<nodes.length; i++) {
+        nodeGroup.append(createNode(nodes[i].value));
+    }
 }

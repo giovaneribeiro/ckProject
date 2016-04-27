@@ -10,6 +10,7 @@
 .circle circle:hover {
     fill: #3498db;
 }
+
 .circle text.remove,
 .circle circle.remove {
     fill: #c0392b;
@@ -20,6 +21,18 @@
 .circle text text.remove:hover {
     fill: #e74c3c;
 }
+
+.circle text.add,
+.circle circle.add {
+    fill: #27ae60;
+
+    cursor: pointer;
+}
+.circle circle.add:hover,
+.circle text text.add:hover {
+    fill: #2ecc71;
+}
+
 .circle text,
 .circle text tspan {
     text-anchor: middle;
